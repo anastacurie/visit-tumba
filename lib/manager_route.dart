@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
+import 'package:visit_tumba/home/home_managers_profiles.dart';
 
 class ManagerRoute extends StatefulWidget {
   const ManagerRoute({Key? key}) : super(key: key);
@@ -9,13 +10,28 @@ class ManagerRoute extends StatefulWidget {
 }
 
 class _ManagerRouteState extends State<ManagerRoute> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page',
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+    Text('Search Page',
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+    Text('Profile Page',
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         padding: EdgeInsets.zero,
-        height: size.height * 0.9,
+        height: size.height,
         child: Column(
           children: [
             Container(
@@ -34,86 +50,84 @@ class _ManagerRouteState extends State<ManagerRoute> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
             Container(
               width: size.width,
+              height: size.height * 0.6,
               padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-              child: Column(
-                children: [
-                  Container(
-                    width: size.width,
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const ManagersProfile(
+                      photo: 'images/mutabazi_rc.png',
+                      job_title: 'Princial',
+                      names: 'Eng. MUTABAZI R. Clemenence',
+                      phone: '+2507811221122',
+                    ),
+                    const ManagersProfile(
+                      photo: 'images/nkuranga_jb.jpg',
+                      job_title: 'Ag. DPAT',
+                      names: 'NKURANGA J. Bosco',
+                      phone: '+2507811221122',
+                    ),
+                    const ManagersProfile(
+                      photo: 'images/burton_i.png',
+                      job_title: 'Ag. CSDM',
+                      names: 'Burton P. IMBAMBASI',
+                      phone: '+25078112211',
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: EdgeInsets.only(left: size.width * 0.05),
                         child: Row(
                           children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image:
-                                      AssetImage("images/passport_photo.png"),
-                                ),
-                              ),
+                            Text(
+                              "Directors",
+                              style: TextStyle(color: tBlue),
                             ),
-                            Container(
-                                margin:
-                                    EdgeInsets.only(left: size.width * 0.02),
-                                child: Column(
-                                  children: [
-                                    RichText(
-                                      text: TextSpan(
-                                        text: "Names:",
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 18),
-                                        children: [
-                                          TextSpan(
-                                              text: "Eng. MUTABAZI R. Clemence",
-                                              style: TextStyle(color: tGreen))
-                                        ],
-                                      ),
-                                    ),
-                                    RichText(
-                                      text: TextSpan(
-                                        text: "Title:",
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 18),
-                                        children: [
-                                          TextSpan(
-                                              text: "Principal",
-                                              style: TextStyle(color: tGreen))
-                                        ],
-                                      ),
-                                    ),
-                                    RichText(
-                                      text: TextSpan(
-                                        text: "Phone:",
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 18),
-                                        children: [
-                                          TextSpan(
-                                              text: "+25078383838",
-                                              style: TextStyle(color: tGreen))
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ))
+                            Icon(
+                              Icons.arrow_forward,
+                              color: tBlue,
+                              size: 20,
+                            )
                           ],
-                        )),
-                  )
-                ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.home),
+                title: const Text('Home'),
+                backgroundColor: tGreen),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.computer),
+                title: const Text('Departments'),
+                backgroundColor: tYellow),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.people),
+              title: const Text('Sponsors'),
+              backgroundColor: tBlue,
+            ),
+          ],
+          type: BottomNavigationBarType.shifting,
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          iconSize: 15,
+          onTap: _onItemTapped,
+          elevation: 3),
     );
   }
 }

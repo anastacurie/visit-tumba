@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
 import 'package:visit_tumba/home/home_bottom.dart';
+import 'package:visit_tumba/home/home_side_button.dart';
 import 'package:visit_tumba/manager_route.dart';
 
-class HomeRoute extends StatelessWidget {
-  HomeRoute({Key? key}) : super(key: key);
+class HomeRoute extends StatefulWidget {
+  const HomeRoute({Key? key}) : super(key: key);
+  @override
+  _HomeRouteState createState() => _HomeRouteState();
+}
+
+class _HomeRouteState extends State<HomeRoute> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -14,170 +20,55 @@ class HomeRoute extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              padding: EdgeInsets.zero,
               width: size.width,
               child: Row(
                 children: [
                   Expanded(
                     child: Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: size.height * 0.1),
                       height: size.height * 0.9,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            width: 105,
-                            height: 70,
-                            decoration: BoxDecoration(
-                                color: tYellow,
-                                borderRadius: const BorderRadius.horizontal(
-                                  left: Radius.circular(10),
-                                  right: Radius.circular(10),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: tGreen,
-                                      offset: const Offset(3, 3),
-                                      blurRadius: 5)
-                                ]),
-                            child: FlatButton(
-                              onPressed: () {
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            HomeSideButtons(
+                              title: 'Management',
+                              press: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ManagerRoute(),
                                   ),
                                 );
-                                //Open Manager Route
+                                //print("People");
                               },
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.people,
-                                    color: tGreen,
-                                  ),
-                                  Text(
-                                    "Management",
-                                    style:
-                                        TextStyle(color: tGreen, fontSize: 12),
-                                  ),
-                                ],
-                              ),
+                              icon: Icons.directions_walk,
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            width: 105,
-                            height: 70,
-                            decoration: BoxDecoration(
-                                color: tYellow,
-                                borderRadius: const BorderRadius.horizontal(
-                                  left: Radius.circular(10),
-                                  right: Radius.circular(10),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: tGreen,
-                                      offset: const Offset(3, 3),
-                                      blurRadius: 5)
-                                ]),
-                            child: FlatButton(
-                              onPressed: () {
-                                //Open Department Route
+                            HomeSideButtons(
+                              title: 'Departments',
+                              press: () {
+                                //print("Thank you");
                               },
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.computer,
-                                    color: tGreen,
-                                  ),
-                                  Text(
-                                    "Departments",
-                                    style:
-                                        TextStyle(color: tGreen, fontSize: 12),
-                                  ),
-                                ],
-                              ),
+                              icon: Icons.computer,
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            width: 105,
-                            height: 70,
-                            decoration: BoxDecoration(
-                                color: tYellow,
-                                borderRadius: const BorderRadius.horizontal(
-                                  left: Radius.circular(10),
-                                  right: Radius.circular(10),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: tGreen,
-                                      offset: const Offset(3, 3),
-                                      blurRadius: 5)
-                                ]),
-                            child: FlatButton(
-                              onPressed: () {
-                                //Open Partner Route
+                            HomeSideButtons(
+                              title: 'Partners',
+                              press: () {
+                                //print("People");
                               },
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.people,
-                                    color: tGreen,
-                                  ),
-                                  Text(
-                                    "Partners",
-                                    style:
-                                        TextStyle(color: tGreen, fontSize: 12),
-                                  ),
-                                ],
-                              ),
+                              icon: Icons.people,
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            width: 105,
-                            height: 70,
-                            decoration: BoxDecoration(
-                                color: tYellow,
-                                borderRadius: const BorderRadius.horizontal(
-                                  left: Radius.circular(10),
-                                  right: Radius.circular(10),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: tGreen,
-                                      offset: const Offset(3, 3),
-                                      blurRadius: 5)
-                                ]),
-                            child: FlatButton(
-                              onPressed: () {
-                                //Open Galley Route
+                            HomeSideButtons(
+                              title: 'Gallery',
+                              press: () {
+                                //print("Thank you");
                               },
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.photo_album,
-                                    color: tGreen,
-                                  ),
-                                  Text(
-                                    "Gallery",
-                                    style:
-                                        TextStyle(color: tGreen, fontSize: 12),
-                                  ),
-                                ],
-                              ),
+                              icon: Icons.photo_album,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
