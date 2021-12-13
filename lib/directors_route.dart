@@ -4,15 +4,16 @@ import 'package:visit_tumba/directors_route.dart';
 import 'package:visit_tumba/manager/managers_profile.dart';
 
 import 'manager/manager_top_section.dart';
+import 'manager_route.dart';
 
-class ManagerRoute extends StatefulWidget {
-  const ManagerRoute({Key? key}) : super(key: key);
+class DirectorsRoute extends StatefulWidget {
+  const DirectorsRoute({Key? key}) : super(key: key);
 
   @override
-  _ManagerRouteState createState() => _ManagerRouteState();
+  _DirectorsRouteState createState() => _DirectorsRouteState();
 }
 
-class _ManagerRouteState extends State<ManagerRoute> {
+class _DirectorsRouteState extends State<DirectorsRoute> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Home Page',
@@ -47,7 +48,7 @@ class _ManagerRouteState extends State<ManagerRoute> {
                     bottomLeft: Radius.circular(40),
                   ),
                 ),
-                child: const ManagersTop(title: "IPRC TUMBA TOP MANAGERS")),
+                child: const ManagersTop(title: "IPRC TUMBA DIRECTORS")),
             Container(
               width: size.width,
               height: size.height * 0.6,
@@ -56,29 +57,29 @@ class _ManagerRouteState extends State<ManagerRoute> {
                 child: Column(
                   children: [
                     const ManagersProfile(
-                      photo: 'images/mutabazi_rc.png',
-                      job_title: 'Princial',
-                      names: 'Eng. MUTABAZI R. Clemenence',
-                      phone: '+2507811221122',
+                      photo: 'images/passport_photo.png',
+                      job_title: 'DAS',
+                      names: 'KAYITABA ABDUL',
+                      phone: '+2507811221100',
                     ),
                     const ManagersProfile(
-                      photo: 'images/nkuranga_jb.jpg',
-                      job_title: 'Ag. DPAT',
-                      names: 'NKURANGA J. Bosco',
-                      phone: '+2507811221122',
+                      photo: 'images/passport_photo.png',
+                      job_title: 'DSA',
+                      names: 'GIRAMATA Yvonne',
+                      phone: '+2507811221199',
                     ),
                     const ManagersProfile(
-                      photo: 'images/burton_i.png',
-                      job_title: 'Ag. CSDM',
-                      names: 'Burton P. IMBAMBASI',
-                      phone: '+25078112211',
+                      photo: 'images/passport_photo.png',
+                      job_title: 'DF',
+                      names: 'SHYAKA Claude',
+                      phone: '+25078100211',
                     ),
                     InkWell(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DirectorsRoute(),
+                            builder: (context) => ManagerRoute(),
                           ),
                         );
                       },
@@ -87,7 +88,7 @@ class _ManagerRouteState extends State<ManagerRoute> {
                         child: Row(
                           children: [
                             Text(
-                              "Directors",
+                              "Top Managers",
                               style: TextStyle(color: tBlue),
                             ),
                             Icon(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
+import 'package:visit_tumba/departments_route.dart';
 import 'package:visit_tumba/home/home_bottom.dart';
 import 'package:visit_tumba/home/home_side_button.dart';
 import 'package:visit_tumba/manager_route.dart';
@@ -49,7 +50,12 @@ class _HomeRouteState extends State<HomeRoute> {
                             HomeSideButtons(
                               title: 'Departments',
                               press: () {
-                                //print("Thank you");
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DepartmentRoute(),
+                                  ),
+                                );
                               },
                               icon: Icons.computer,
                             ),
