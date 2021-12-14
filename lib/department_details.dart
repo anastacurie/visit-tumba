@@ -52,6 +52,7 @@ class _IctDepartmentRouteState extends State<IctDepartmentRoute> {
                         child: Column(
                           children: [
                             Container(
+                              padding: EdgeInsets.zero,
                               child: Column(
                                 children: [
                                   Container(
@@ -61,24 +62,27 @@ class _IctDepartmentRouteState extends State<IctDepartmentRoute> {
                                     child: Text(
                                       "Area Of Specialization".toUpperCase(),
                                       textAlign: TextAlign.right,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                   Container(
-                                    child: Text(
+                                    padding: EdgeInsets.zero,
+                                    child: const Text(
                                       "1. Software Development",
                                       textAlign: TextAlign.justify,
                                     ),
                                   ),
                                   Container(
-                                    child: Text(
+                                    padding: EdgeInsets.zero,
+                                    child: const Text(
                                       "2. Networking",
                                       textAlign: TextAlign.justify,
                                     ),
                                   ),
                                   Container(
-                                    child: Text(
+                                    padding: EdgeInsets.zero,
+                                    child: const Text(
                                       "3. Database Administration",
                                       textAlign: TextAlign.justify,
                                     ),
@@ -93,12 +97,22 @@ class _IctDepartmentRouteState extends State<IctDepartmentRoute> {
                               child: Text(
                                 "Tools And Equipments".toUpperCase(),
                                 textAlign: TextAlign.right,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
-                            LabItems(),
-                            LabItems(),
-                            LabItems(),
+                            const LabItems(
+                              itemImage: "images/computer_lab1.png",
+                              itemLabel: "IT Lab 6",
+                            ),
+                            const LabItems(
+                              itemImage: "images/computer.png",
+                              itemLabel: "Computer Lab1",
+                            ),
+                            const LabItems(
+                              itemImage: "images/computer.png",
+                              itemLabel: "Computer Lab1",
+                            ),
                           ],
                         ),
                       ),
@@ -180,18 +194,22 @@ class CircleDepPicture extends StatelessWidget {
 }
 
 class LabItems extends StatelessWidget {
-  const LabItems({Key? key}) : super(key: key);
-
+  const LabItems({Key? key, required this.itemImage, required this.itemLabel})
+      : super(key: key);
+  final String itemImage;
+  final String itemLabel;
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(bottom: 15),
       child: Column(
         children: [
           Image(
-            image: AssetImage("images/computer.png"),
+            image: AssetImage(itemImage),
           ),
           Container(
-            child: Text("Computer Labs"),
+            padding: EdgeInsets.zero,
+            child: Text(itemLabel),
           )
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
+import 'package:visit_tumba/department/departments_section.dart';
 import 'package:visit_tumba/department_details.dart';
 
 import 'manager/manager_top_section.dart';
@@ -53,6 +54,7 @@ class _DepartmentRouteState extends State<DepartmentRoute> {
                         );
                       },
                       department: "ICT Department",
+                      dptIcon: Icons.computer,
                       br: borderValue,
                       tr: 0,
                       bl: 0,
@@ -61,6 +63,7 @@ class _DepartmentRouteState extends State<DepartmentRoute> {
                     DepartmentSection(
                       click: () {},
                       department: "ET Department",
+                      dptIcon: Icons.live_tv,
                       br: 0,
                       tr: 0,
                       bl: 0,
@@ -69,6 +72,7 @@ class _DepartmentRouteState extends State<DepartmentRoute> {
                     DepartmentSection(
                       click: () {},
                       department: "RE Department",
+                      dptIcon: Icons.lightbulb_outline,
                       br: 0,
                       tr: 0,
                       bl: borderValue,
@@ -77,6 +81,7 @@ class _DepartmentRouteState extends State<DepartmentRoute> {
                     DepartmentSection(
                       click: () {},
                       department: "Mechatronics Department",
+                      dptIcon: Icons.class__sharp,
                       br: 0,
                       tr: borderValue,
                       bl: 0,
@@ -111,67 +116,6 @@ class _DepartmentRouteState extends State<DepartmentRoute> {
           iconSize: 15,
           onTap: _onItemTapped,
           elevation: 3),
-    );
-  }
-}
-
-class DepartmentSection extends StatelessWidget {
-  const DepartmentSection(
-      {Key? key,
-      required this.tl,
-      required this.bl,
-      required this.br,
-      required this.tr,
-      required this.department,
-      required this.click})
-      : super(key: key);
-  final double br, tr, bl, tl;
-  final String department;
-  final void Function() click;
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    //var borderValue = size.width * 0.1;
-    //double br = 10;
-    return Container(
-      width: size.width,
-      padding: EdgeInsets.symmetric(vertical: size.height * 0.03),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          //mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: click,
-              child: Container(
-                width: size.width * 0.3,
-                height: size.width * 0.3 / 2.5,
-                decoration: BoxDecoration(
-                  color: tBlue,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(bl),
-                    topLeft: Radius.circular(tl),
-                    bottomRight: Radius.circular(br),
-                    topRight: Radius.circular(tr),
-                  ),
-                ),
-                child: Icon(
-                  Icons.access_alarm,
-                  size: size.width * 0.3 / 3.5,
-                ),
-              ),
-            ),
-            Container(
-              width: size.width * 0.03,
-            ),
-            Text(
-              department.toUpperCase(),
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: size.width * 0.04),
-            )
-          ],
-        ),
-      ),
     );
   }
 }
