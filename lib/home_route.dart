@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
 import 'package:visit_tumba/departments_route.dart';
+import 'package:visit_tumba/gallery_route.dart';
 import 'package:visit_tumba/home/home_bottom.dart';
 import 'package:visit_tumba/home/home_side_button.dart';
 import 'package:visit_tumba/manager_route.dart';
@@ -69,6 +70,12 @@ class _HomeRouteState extends State<HomeRoute> {
                             HomeSideButtons(
                               title: 'Gallery',
                               press: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => GalleryRoute(),
+                                  ),
+                                );
                                 //print("Thank you");
                               },
                               icon: Icons.photo_album,

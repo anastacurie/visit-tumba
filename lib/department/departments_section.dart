@@ -25,12 +25,14 @@ class DepartmentSection extends StatelessWidget {
       width: size.width,
       padding: EdgeInsets.symmetric(vertical: size.height * 0.03),
       decoration: const BoxDecoration(
-          border: Border(
-              bottom: BorderSide(
-        style: BorderStyle.solid,
-        color: Colors.yellowAccent,
-        width: 1,
-      ))),
+        border: Border(
+          bottom: BorderSide(
+            style: BorderStyle.solid,
+            color: Colors.yellowAccent,
+            width: 1,
+          ),
+        ),
+      ),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
