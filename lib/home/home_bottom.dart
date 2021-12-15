@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visit_tumba/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
+//UrlLauncher.launch
 
 class HomeBottom extends StatefulWidget {
   const HomeBottom({Key? key}) : super(key: key);
@@ -20,14 +22,16 @@ class _HomeBottomState extends State<HomeBottom> {
         children: [
           Row(
             children: [
-              Icon(
-                Icons.phone,
-                color: tBlue,
+              InkWell(
+                child: Icon(
+                  Icons.phone,
+                  color: tBlue,
+                ),
               ),
               Text(
-                "+25033636363",
+                "+2507838383838",
                 style: TextStyle(color: tBlue),
-              )
+              ),
             ],
           ),
           Row(

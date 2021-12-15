@@ -17,16 +17,31 @@ class ManagersTop extends StatelessWidget {
           bottomLeft: Radius.circular(40),
         ),
       ),
-      child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
+      child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Icon(
+                  Icons.chevron_left,
+                  color: Colors.white,
+                ),
+              ),
+              // spacer(),
+              Text(
+                title.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

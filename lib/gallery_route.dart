@@ -6,7 +6,7 @@ class GalleryRoute extends StatelessWidget {
 
   Widget buildImage(String urlImage, int index) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 12),
+      margin: const EdgeInsets.symmetric(horizontal: 12),
       child: Image.asset(urlImage),
     );
   }

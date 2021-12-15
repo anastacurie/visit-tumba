@@ -5,6 +5,7 @@ import 'package:visit_tumba/gallery_route.dart';
 import 'package:visit_tumba/home/home_bottom.dart';
 import 'package:visit_tumba/home/home_side_button.dart';
 import 'package:visit_tumba/manager_route.dart';
+import 'package:visit_tumba/partners_route.dart';
 
 class HomeRoute extends StatefulWidget {
   const HomeRoute({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _HomeRouteState extends State<HomeRoute> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ManagerRoute(),
+                                    builder: (context) => const ManagerRoute(),
                                   ),
                                 );
                                 //print("People");
@@ -54,7 +55,8 @@ class _HomeRouteState extends State<HomeRoute> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => DepartmentRoute(),
+                                    builder: (context) =>
+                                        const DepartmentRoute(),
                                   ),
                                 );
                               },
@@ -63,6 +65,12 @@ class _HomeRouteState extends State<HomeRoute> {
                             HomeSideButtons(
                               title: 'Partners',
                               press: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const PartnersRoute(),
+                                  ),
+                                );
                                 //print("People");
                               },
                               icon: Icons.people,
@@ -73,7 +81,7 @@ class _HomeRouteState extends State<HomeRoute> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => GalleryRoute(),
+                                    builder: (context) => const GalleryRoute(),
                                   ),
                                 );
                                 //print("Thank you");
@@ -93,7 +101,7 @@ class _HomeRouteState extends State<HomeRoute> {
                       boxShadow: [
                         BoxShadow(
                             color: tYellow,
-                            offset: Offset(0, 5),
+                            offset: const Offset(0, 5),
                             blurRadius: 10),
                       ],
                       image: const DecorationImage(
